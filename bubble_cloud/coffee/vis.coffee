@@ -404,14 +404,15 @@ root.plotData = (selector, data, plot) ->
     .datum(data)
     .call(plot)
 
-texts = [
-  {key:"lecun",file:"lecun.csv", name:"A Glimpse into the Future of Deep Learning Hardware"}
-]
+texts = [{key:"lecun",file:'lecun.csv', name:"A G Learning Hardware"}]
 
 # ---
 # jQuery document ready.
 # ---
 $ ->
+
+
+  
   # create a new Bubbles chart
   plot = Bubbles()
 

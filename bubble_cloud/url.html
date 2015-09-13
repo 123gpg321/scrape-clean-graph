@@ -25,27 +25,18 @@
 <body>
 
   <div id="container" class="container">
-    <header>
-<form action="/url.html"><input type="submit"></form>
-    <h1>Bubble Cloud</h1>
-    <h2>The most frequently used words in URL are:</h2>
-      <h2 id="book-title"></h2>
-    </header>
-    <div id="main" role="main">
-      <div id="vis"></div>
-      <div id="status"></div>
-      <div id="controls">
-        <h3>Jitter</h3>
-        <form id="jitter" oninput="output.value = (jitter_input.value / 200).toFixed(3)" >
-          <input id="jitter_input" type="range" min="0" max="400" value="100" style="width:240px;">
-          <output name="output" for="input">0.5</output>
-        </form>
-      </div>
-    </div>
-    <footer>
-    <p><a href="http://vallandingham.me/building_a_bubble_cloud.html">Blog Post</a> | <a href="https://github.com/vlandham/bubble_cloud">Source Code</a> | <a href="http://www.nytimes.com/interactive/2012/09/04/us/politics/democratic-convention-words.html">Original Inspiration</a></p>
-    </footer>
-  </div> <!--! end of #container -->
+
+    <h1>Enter url for a bubble cloud representation.</h1>
+<form action="url" method="POST" name="myForm">
+
+<p><label for="url">URL:</label>
+<input type="text" name="url" id="fname"></p>
+
+<input value="Submit" type="submit" onclick="submitform()">
+<br>
+<br>
+<p>NOTE: Certain websites behind https or some blocked content may not be visualized<p>
+
 
 
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
@@ -55,11 +46,17 @@
   <script defer src="js/plugins.js"></script>
   <script src="js/libs/coffee-script.js"></script>
   <script src="js/libs/d3.min.js"></script>
-  <script type="text/javascript" src="coffee/vis.js"></script>
+  <script type="text/coffeescript" src="coffee/vis.coffee"></script>
   <script type="text/javascript">
   </script>
+<script type="text/javascript">
+$("#myForm").bind('ajax:complete', function() {
+
+         alert("Hello! I am an alert box!!");
 
 
+   });
+</script>
 
   <!--[if lt IE 7 ]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>

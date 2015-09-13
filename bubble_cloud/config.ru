@@ -8,6 +8,15 @@ BUILD_DIR = '.'
 
 class SinatraStaticServer < Sinatra::Base
 
+  post '/url' do
+    cmd = "cd ..; python controller_proxy.py #{params[:url]}"
+    if system( cmd )
+	p true
+	File.read(File.join('index.html'))
+	else
+	p false
+	end
+  end
 
   get(/.+/) do
     send_sinatra_file(request.path) {404}
